@@ -23,8 +23,8 @@ $(document).ready(function() {
             
             $(".cloud:hidden").eq(Math.floor(Math.random() *$(".cloud:hidden").length)).show();
         }
-        
-        
+        $("#questioncard").hide();
+        $(".button").hide();
         $("#explanation").html(questionsArray[questionNumber][2]);
         questionNumber++;
         $("#questioncard").html(questionsArray[questionNumber][0]);
