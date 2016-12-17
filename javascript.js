@@ -13,6 +13,8 @@ questionsArray.push(["Is it necessary to spell check your work before printing i
 questionsArray.push(["Should you give a child a clean piece of paper if they want to draw?","nobutton","they tend to waste so give them a used piece of paper"])
 
 $(document).ready(function() {
+    $("#explanation").hide( );
+    $("#continue")
     $("#questioncard").html(questionsArray[questionNumber][0]);
     $(".button").click(function() {
         var buttonId = $(this).attr("id");
@@ -25,19 +27,32 @@ $(document).ready(function() {
         }
         $("#questioncard").hide();
         $(".button").hide();
+        $("#explanation").show( );
+        $("#continue").show();
         $("#explanation").html(questionsArray[questionNumber][2]);
-        questionNumber++;
-        $("#questioncard").html(questionsArray[questionNumber][0]);
-        
-        
-        
        
         
         
+        
     });
+    
+    $("#continue").click(function() {
+        questionNumber++; 
+        $("#questioncard").html(questionsArray[questionNumber][0]);
+        $("#questioncard").show();
+        $(".button").show();
+        $("#explanation").hide();
+        $("#continue").hide();
+        
+        
+    })
+    
+    
+    
     //cloud code
     $("#skyline").append('<div><img style="left:'+Math.floor(Math.random() *500)+'px;" class="cloud" src="http://www.cartoonlearning.com/wp-content/uploads/gray-cloud-black-outline.png"></div>');
     for(var i = 0; i < 15; i++) {
    $("#skyline").append('<div style="display:none;"><img style="right:'+Math.floor(Math.random() *900)+'px;top:'+Math.floor(Math.random() *200)+'px;" class="cloud" src="http://www.cartoonlearning.com/wp-content/uploads/gray-cloud-black-outline.png"></div>').children().last().fadeIn("slow");
+   
 }
 });
